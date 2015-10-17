@@ -11,14 +11,14 @@ blog.add_post Post.new('Post Title 5', '2351194', 'Post Text 3')
 blog.add_post Post.new('Post Title 7', '2451914', 'Post Text 1')
 blog.add_post Post.new('Post Title 8', '2651224', 'Post Text 2', true)
 blog.add_post Post.new('Post Title 9', '2351344', 'Post Text 3')
-
-blog.publish_front_page
+blog.add_post Post.new('Post Title 6', '26444', 'Post Text 2', true)
+blog.add_post Post.new('Post Title 5', '22351194', 'Post Text 3')
+blog.add_post Post.new('Post Title 7', '242114', 'Post Text 1')
+blog.add_post Post.new('Post Title 8', '26224', 'Post Text 2', true)
+blog.add_post Post.new('Post Title 9', '351344', 'Post Text 3')
+blog.publish_front_page(1)
 while true
-	puts """
-#{blog.current_page} #{blog.current_page+1} #{blog.current_page+2}
-
-> next
-"""
-	blog.current_page = gets.chomp.to_i
-	blog.publish_front_page
+	blog.print_pagination_controls
+	page = gets.chomp
+	blog.publish_front_page(page)
 end
